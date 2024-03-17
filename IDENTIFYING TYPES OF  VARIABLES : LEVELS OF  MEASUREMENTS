@@ -1,0 +1,33 @@
+# Sample data
+gender <- c("Male", "Female", "Male", "Male", "Female")
+education <- c("High School", "Bachelor's", "Master's", "High School", "PhD")
+temperature <- c(23.5, 28.2, 25.0, 21.8, 30.5)
+income <- c(45000, 60000, 75000, 55000, 90000)
+age <- c(28, 35, 42, 24, 50)
+# Function to identify level of measurement
+identify_measurement <- function(variable) {
+ if (is.factor(variable) || is.character(variable)) {
+ cat("Nominal Level\n")
+ } else if (is.ordered(variable)) {
+ cat("Ordinal Level\n")
+ } else if (is.numeric(variable)) {
+ if (is.integer(variable)) {
+ cat("Ratio Level (Integer)\n")
+ } else {
+ cat("Ratio Level (Continuous)\n")
+ }
+ } else {
+ cat("Unable to identify the level of measurement for this variable.\n")
+ }
+}
+# Identify levels of measurement for each variable
+cat("Gender: ")
+identify_measurement(gender)
+cat("Education: ")
+identify_measurement(education)
+cat("Temperature: ")
+identify_measurement(temperature)
+cat("Income: ")
+identify_measurement(income)
+cat("Age: ")
+identify_measurement(age)
