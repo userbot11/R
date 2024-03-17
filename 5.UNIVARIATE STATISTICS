@@ -1,0 +1,26 @@
+# Sample data
+numeric_variable <- c(23, 45, 32, 18, 56, 40, 27, 33, 50, 42)
+# Function to compute univariate statistics
+compute_univariate_statistics <- function(variable) {
+ # Measures of central tendency
+ mean_value <- mean(variable)
+ median_value <- median(variable)
+ mode_value <- table(variable)[which.max(table(variable))]
+ # Measures of dispersion
+ range_values <- range(variable)
+ min_value <- min(variable)
+ max_value <- max(variable)
+ variance_value <- var(variable)
+ sd_value <- sd(variable)
+ # Display results
+ cat("Mean:", mean_value, "\n")
+ cat("Median:", median_value, "\n")
+ cat("Mode:", mode_value, "\n")
+ cat("Range:", range_values, "\n")
+ cat("Minimum:", min_value, "\n")
+ cat("Maximum:", max_value, "\n")
+ cat("Variance:", variance_value, "\n")
+ cat("Standard Deviation:", sd_value, "\n")
+}
+# Compute univariate statistics for the numeric variable
+compute_univariate_statistics(numeric_variable)
