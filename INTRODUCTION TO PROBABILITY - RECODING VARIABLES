@@ -1,0 +1,14 @@
+# Sample data
+original_scores <- c(75, 92, 60, 85, 78, 95, 42, 67, 88, 50)
+# Display original scores
+cat("Original Scores:", original_scores, "\n\n")
+# Function to recode variables
+recode_scores <- function(scores) {
+ # Recode scores based on a threshold (e.g., 70)
+ recoded_scores <- ifelse(scores >= 70, "Pass", "Fail")
+ return(recoded_scores)
+}
+# Recode the original scores
+recoded_scores <- recode_scores(original_scores)
+# Display recoded scores
+cat("Recoded Scores:", recoded_scores, "\n")
