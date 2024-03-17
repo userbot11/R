@@ -1,0 +1,12 @@
+# R Initialization Program
+ # Display a welcome message
+ cat("Welcome to R Programming!\n")
+ # Set up some variables
+ a <- 5
+ b <- 7
+ # Perform a simple operation
+ result <- a + b
+ # Display the result
+ cat("The sum of a and b is:", result, "\n")
+ # End of the script
+ cat("Initialization complete!\n")
