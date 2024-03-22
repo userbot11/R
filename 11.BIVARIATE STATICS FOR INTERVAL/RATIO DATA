@@ -1,0 +1,28 @@
+#Sample data
+variable1 <- c(20, 25, 30, 35, 40, 45, 50, 55, 60, 65)
+variable2 <- c(50, 45, 40, 35, 30, 25, 20, 15, 10, 5)
+# Create a data frame
+data_df <- data.frame(Variable1 = variable1, Variable2 = variable2)
+# Display the data frame
+cat("Data Frame:\n")
+print(data_df)
+# Create a scatterplot
+plot(variable1, variable2,
+ main = "Scatterplot of Variable1 vs. Variable2",
+ xlab = "Variable1",
+ ylab = "Variable2",
+ pch = 16, col = "blue"
+)
+# Calculate the correlation coefficient
+correlation_coefficient <- cor(variable1, variable2)
+# Display the correlation coefficient
+cat("\nCorrelation Coefficient:", correlation_coefficient, "\n")
+# Check the strength of the correlation
+cat("Strength of Correlation:\n")
+if (abs(correlation_coefficient) >= 0.8) {
+ cat("Strong correlation\n")
+} else if (abs(correlation_coefficient) >= 0.5) {
+ cat("Moderate correlation\n")
+} else {
+ cat("Weak correlation\n")
+}
