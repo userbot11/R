@@ -1,0 +1,19 @@
+# Set seed for reproducibility
+set.seed(123)
+# Generate random data from a normal distribution
+data <- rnorm(1000, mean = 0, sd = 1)
+# Create a histogram
+hist(data,
+ col = "skyblue", # Color of the bars
+ main = "Histogram of Normal Distribution", # Main title
+ xlab = "Values", # X-axis label
+ ylab = "Frequency", # Y-axis label
+ border = "black", # Color of the bar borders
+ breaks = 20 # Number of bins
+)
+# Overlay a normal curve on the histogram
+curve(dnorm(x, mean = mean(data), sd = sd(data)),
+ col = "red", # Color of the curve
+ lwd = 2, # Line width
+ add = TRUE # Overlay on the existing plot
+)
