@@ -1,0 +1,37 @@
+# Set seed for reproducibility
+set.seed(123)
+# Generate two sets of random data from normal distributions
+group1 <- rnorm(30, mean = 50, sd = 10)
+group2 <- rnorm(30, mean = 55, sd = 12)
+# Perform a two-tailed independent samples t-test
+t_test_result_two_tailed <- t.test(group1, group2)
+# Perform a one-tailed independent samples t-test (assuming group2 > group1)
+t_test_result_one_tailed <- t.test(group1, group2, alternative = "less")
+# Display the results of the two-tailed t-test
+cat("Two-Tailed Independent Samples t-test Results:\n")
+cat("Test Statistic:", t_test_result_two_tailed$statistic, "\n")
+cat("p-value:", t_test_result_two_tailed$p.value, "\n")
+cat("Degrees of Freedom:", t_test_result_two_tailed$parameter, "\n")
+# Display the results of the one-tailed t-test
+cat("One-Tailed Independent Samples t-test Results:\n")
+cat("Test Statistic:", t_test_result_one_tailed$statistic, "\n")
+cat("p-value:", t_test_result_one_tailed$p.value, "\n")
+cat("Degrees of Freedom:", t_test_result_one_tailed$parameter, "\n")
+# Check the significance level
+alpha <- 0.05
+cat("Significance Level (alpha):", alpha, "\n")
+# Determine if the differences are statistically significant
+cat("Two-Tailed Test Conclusion:\n")
+if (t_test_result_two_tailed$p.value < alpha/2) {
+ cat("Reject the null hypothesis. There is a significant difference between the means.\n")
+} else {
+ cat("Fail to reject the null hypothesis. There is no significant difference between the means.\n")
+}
+cat("One-Tailed Test Conclusion:\n")
+if (t_test_result_one_tailed$p.value < alpha) {
+ cat("Reject the null hypothesis. There is a significant difference; group2 mean is less than group1
+mean.\n")
+} else {
+ cat("Fail to reject the null hypothesis. There is no significant difference or group2 mean is greater than
+group1 mean.\n")
+}
