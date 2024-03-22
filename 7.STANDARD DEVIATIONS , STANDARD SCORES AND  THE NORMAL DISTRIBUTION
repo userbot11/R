@@ -1,0 +1,25 @@
+# Set seed for reproducibility
+set.seed(123)
+# Generate random data from a normal distribution
+data <- rnorm(1000, mean = 50, sd = 10)
+# Calculate standard deviation
+std_dev <- sd(data)
+cat("Standard Deviation:", std_dev, "\n")
+# Calculate standard scores (z-scores)
+z_scores <- scale(data)
+cat("First 5 Z-scores:", head(z_scores, 5), "\n")
+# Create a histogram
+hist(data,
+ col = "skyblue", # Color of the bars
+ main = "Histogram of Normal Distribution", # Main title
+ xlab = "Values", # X-axis label
+ ylab = "Frequency", # Y-axis label
+ border = "black", # Color of the bar borders
+ breaks = 20 # Number of bins
+)
+# Overlay a standard normal curve on the histogram
+curve(dnorm(x, mean = mean(data), sd = std_dev),
+ col = "red", # Color of the curve
+ lwd = 2, # Line width
+ add = TRUE # Overlay on the existing plot
+)
