@@ -1,0 +1,30 @@
+# Sample data
+nominal_data <- c("Red", "Blue", "Green", "Red", "Blue", "Green", "Red", "Blue", "Green")
+ordinal_data <- c("Low", "Medium", "High", "Low", "Medium", "High", "Low", "Medium", "High")
+# Create a data frame
+data_df <- data.frame(Nominal = nominal_data, Ordinal = ordinal_data)
+# Display the data frame
+cat("Data Frame:\n")
+print(data_df)
+# Create a contingency table
+contingency_table <- table(data_df)
+# Display the contingency table
+cat("\nContingency Table:\n")
+print(contingency_table)
+# Perform a chi-square test for association
+chi_square_result <- chisq.test(contingency_table)
+# Display the chi-square test results
+cat("\nChi-Square Test for Association:\n")
+print(chi_square_result)
+# Check the significance level
+alpha <- 0.05
+cat("\nSignificance Level (alpha):", alpha, "\n")
+# Determine if the association is statistically significant
+cat("\nConclusion:\n")
+if (chi_square_result$p.value < alpha) {
+ cat("Reject the null hypothesis. There is a significant association between the nominal and ordinal
+variables.\n")
+} else {
+ cat("Fail to reject the null hypothesis. There is no significant association between the nominal and
+ordinal variables.\n")
+}
